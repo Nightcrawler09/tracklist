@@ -8,7 +8,7 @@ development:
   database: tracklist_dev
   timeout: 5000
   username: root
-  password: ardipache
+  password: cangrejipollo091
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
@@ -19,7 +19,7 @@ test:
   database: tracklist_test
   timeout: 5000
   username: root
-  password: ardipache
+  password: cangrejipollo091
   encoding: utf8
 
 production:
@@ -27,5 +27,5 @@ production:
   database: tracklist_pro
   timeout: 5000
   username: root
-  password: ardipache
+  password: cangrejipollo091
   encoding: utf8
