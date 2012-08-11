@@ -8,13 +8,13 @@
   = @track.tag_id
 %p
   %b Author:
-  = @track.author
+  = @track.author.name
 %p
   %b Order:
   = @track.order
 %p
   %b Album:
-  = @track.album_id
+  = @track.album.title
 
 = link_to 'Edit', edit_track_path(@track)
 \|

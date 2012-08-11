@@ -1,3 +1,5 @@
 class Track < ActiveRecord::Base
-  attr_accessible :album_id, :author, :order, :tag_id, :title
+  belongs_to :album
+  belongs_to :author
+  attr_accessible :album_id, :author_id, :track_number, :tag_id, :title
 end
