@@ -8,7 +8,8 @@
   = @album.description
 %p
   %b Tag:
-  = @album.tag_id
+  = @album.tags.map {|x| (link_to x.name,x)}.join(", ").html_safe
+   
 %p
   %b Author:
   = @album.author_id
@@ -35,7 +36,7 @@
       %td= track.title
       %td= track.tag_id
       %td= link_to track.author.name, author_path(track.author)
-      %td= track.track_number
+      %td= track.tags.map {|x| (link_to x.name,x)}.join(", ").html_safe
       %td= link_to track.album.title, album_path(track.album)
       %td= link_to 'Show', track
       %td= link_to 'Edit', edit_track_path(track)
