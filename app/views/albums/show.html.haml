@@ -8,7 +8,7 @@
   = @album.description
 %p
   %b Tag:
-  = @album.tags.map {|x| (link_to x.name,x)}.join(", ").html_safe
+  = tags_links(@album)
    
 %p
   %b Author:

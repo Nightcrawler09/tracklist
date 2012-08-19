@@ -9,7 +9,8 @@ class Album < ActiveRecord::Base
 
   def token_inputs=(names)
     names.split(",").each do |name|
-      self.tags << Tag.find_or_create_by_name(name)
+      name.slice!("New: ")
+      self.tags << Tag.find_or_create_by_name(name.delete('"'))
     end
   end
 end

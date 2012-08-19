@@ -14,7 +14,7 @@
     %tr
       %td= album.title
       %td= album.description
-      %td= album.tag_id
+      %td= tags_links(album)
       %td= link_to album.author.name, author_path(album.author)
       %td= link_to 'Show', album
       %td= link_to 'Edit', edit_album_path(album)
