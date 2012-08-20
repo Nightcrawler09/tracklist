@@ -5,13 +5,13 @@
   = @track.title
 %p
   %b Tag:
-  = @track.tag_id
+  = tags_links(@track)
 %p
   %b Author:
   = @track.author.name
 %p
-  %b Order:
-  = @track.order
+  %b T_number:
+  = @track.track_number
 %p
   %b Album:
   = @track.album.title

@@ -3,10 +3,12 @@
 
   .form-inputs
     = f.input :title
-    = f.input :tag_id
+    = f.input :token_inputs,label: "Tags:", input_html: { data:{ load: @track.tags} }
     = f.association :author
     = f.input :track_number
     = f.association :album
+
+
 
   .form-actions
     = f.button :submit

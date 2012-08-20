@@ -3,7 +3,7 @@
 %table
   %tr
     %th Title
-    %th Tag
+    %th Tags
     %th Author
     %th track_number
     %th Album
@@ -14,7 +14,7 @@
   - @tracks.each do |track|
     %tr
       %td= track.title
-      %td= track.tag_id
+      %td= tags_links(track)
       %td= link_to track.author.name, author_path(track.author)
       %td= track.track_number
       %td= link_to track.album.title, album_path(track.album)
