@@ -9,7 +9,7 @@ gem 'mysql2'
 gem "haml-rails"
 gem "simple_form"
 gem 'rails_tokeninput', '1.6.1.rc1'
-
+gem "paperclip", "~> 3.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

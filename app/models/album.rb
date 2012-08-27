@@ -3,7 +3,8 @@ class Album < ActiveRecord::Base
   has_many :tracks, :order => 'track_number ASC'
   has_many :taglinks, as: :resource
   has_many :tags, through: :taglinks
-  attr_accessible :author_id, :description, :tag_id, :title, :token_inputs
+  has_attached_file :cover
+  attr_accessible :author_id, :description, :tag_id, :title, :token_inputs, :cover
   validates :title, :author, presence: true
   attr_reader :token_inputs
 

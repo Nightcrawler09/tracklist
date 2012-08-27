@@ -15,7 +15,10 @@
 %p
   %b Album:
   = @track.album.title
-
+%p
+  %b Song:
+  =audio_tag @track.song.url, controls: true
+  
 = link_to 'Edit', edit_track_path(@track)
 \|
 = link_to 'Back', tracks_path

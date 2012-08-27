@@ -14,6 +14,10 @@
   %b Author:
   = @album.author_id
 
+%p
+  %b Cover:
+  =image_tag @album.cover.url
+
 = link_to 'Edit', edit_album_path(@album)
 \|
 = link_to 'Back', albums_path
@@ -34,8 +38,9 @@
   - @album.tracks.each do |track|
     %tr
       %td= track.title
-      %td= track.tag_id
+      %td= tags_links(track)
       %td= link_to track.author.name, author_path(track.author)
+      %td= link_to track.track_number
       %td= track.tags.map {|x| (link_to x.name,x)}.join(", ").html_safe
       %td= link_to track.album.title, album_path(track.album)
       %td= link_to 'Show', track

@@ -5,6 +5,7 @@
     = f.input :title
     = f.input :token_inputs,label: "Tags:", input_html: { data:{ load: @track.tags} }
     = f.association :author
+    = f.file_field :song
     = f.input :track_number
     = f.association :album
 
