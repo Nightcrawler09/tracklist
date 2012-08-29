@@ -14,10 +14,23 @@
       %td= author.name
       %td= author.description
       %td= tags_links(author)
-      %td= link_to 'Show', author
-      %td= link_to 'Edit', edit_author_path(author)
-      %td= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to author, class: "btn btn-small btn" do
+          %i.icon-eye-open
+          Show
+      %td
+        = link_to edit_author_path(author), class: "btn btn-small btn" do
+          %i.icon-pencil
+          Edit
+      %td
+        = link_to author, class: "btn btn-small btn", :confirm => 'Are you sure?', :method => :delete do
+          %i.icon-trash
+          Destroy
 
 %br
 
-= link_to 'New Author', new_author_path
+= link_to new_author_path, class: "btn btn-small btn-success" do
+  %i.icon-hand-up
+  New Author
+
+
