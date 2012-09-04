@@ -2,6 +2,7 @@
   = search_form_for @search, html: {class: 'navbar-search pull-right'} do |s|
     = s.text_field :title_cont, class: 'search-query', placeholder: "Search"
 
+
 %h1.title ALBUMS
   
 %br
@@ -10,7 +11,8 @@
   %ul.row
     %li.span6
       .span2
-
+        %p
+          =image_tag @album.cover.url
       .span4
         %div
           = album.title
