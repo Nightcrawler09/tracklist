@@ -1,4 +1,8 @@
-%h1 Listing authors
+-content_for :search do
+  = search_form_for @search, html: {class: 'navbar-search pull-right'} do |s|
+    = s.text_field :name_cont, class: 'search-query', placeholder: "Search"
+
+%h1 AUTHORS
 
 %table
   %tr

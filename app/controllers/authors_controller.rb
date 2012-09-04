@@ -2,7 +2,9 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    @search = Author.search(params[:q])
+    @authors = @search.result
+
 
     respond_to do |format|
       format.html # index.html.erb

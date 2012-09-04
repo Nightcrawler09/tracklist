@@ -1,3 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Lemon);
+@import url(http://fonts.googleapis.com/css?family=Oregano);
+@import "compass";
 @import "bootstrap";
 @import 'font-awesome';
+//variables
+$font_title: 'Lemon', cursive;
+$title_color: #666;
+$box-border: #D4D4D4;
+$box-background: #F9F9F9;
+$gradient-on: white;
+$gradient-off: #F2F2F2;
+$shadow-color: rgba(0, 0, 0, 0.065);
+$sansFontFamily: 'Oregano', cursive;
 
+//mixin
+@mixin my_title_style {
+  font-family: $font_title; 
+}
+//overdrive bootstrap
+.navbar .container {
+  width: 940px;
+  .navbar-search .search-query {
+    height: 30px;
+  }
+}
+@mixin box-style {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-repeat: repeat-x;
+  border: 1px solid $box-border;
+  background-color: $box-background;
+  position:relative;
+  overflow:hidden;
+  @include background-image(linear-gradient(top, $gradient-on, $gradient-off));
+  @include border-radius(4px);
+  @include box-shadow($shadow-color 0 1px 4px);
+}
+
+//header
+.title a {
+  @include my_title_style;
+  &:hover{
+    text-decoration:none;
+    background:none;
+    color:$title_color;
+  }
+}
+//footer
+#footer{
+  @include box-style;
+  margin-top: 10px;
+  p{
+    @include my_title_style;
+    line-height: 30px;
+    margin-top: 5px;
+    text-align: right;
+  }
+}
+//albums-block
+li.span6{
+  border: 1px 1px 1px 1px; 
+  border-style: solid;
+  border-color: $box-border;
+  padding: 3px;
+}
+//body-fontfamily
+.mybody{
+  font-family: $sansFontFamily;
+  text-align: center;
+}

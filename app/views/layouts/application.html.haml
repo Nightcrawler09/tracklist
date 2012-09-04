@@ -1,0 +1,34 @@
+%html
+%head
+  %title Tracklist
+  = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body.mybody
+  .navbar
+    .navbar-inner
+      .container
+        .title.brand
+          = link_to "trackList", albums_path
+        %ul.nav
+
+          -if current_page?(controller: 'authors')
+            %li.active
+              = link_to "Authors", authors_path
+          - else
+            %li
+              = link_to "Authors", authors_path
+
+          -if current_page?(controller: 'tracks')
+            %li.active
+              = link_to "Tracks", tracks_path
+          - else
+            %li
+              = link_to "Tracks", tracks_path
+        = yield :search
+  .container
+    = yield
+
+  #footer
+    .container
+      %p By chesco

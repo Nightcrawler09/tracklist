@@ -2,7 +2,9 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @search = Track.search(params[:q])
+    @tracks = @search.result
+
 
     respond_to do |format|
       format.html # index.html.erb

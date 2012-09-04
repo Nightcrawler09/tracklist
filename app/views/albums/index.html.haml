@@ -1,38 +1,30 @@
-%h1
-  %i.icon-headphones
-  Listing Albums
+-content_for :search do
+  = search_form_for @search, html: {class: 'navbar-search pull-right'} do |s|
+    = s.text_field :title_cont, class: 'search-query', placeholder: "Search"
 
+%h1.title ALBUMS
+  
 %br
 
+- @albums.each do |album|
+  %ul.row
+    %li.span6
+      .span2
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Tag
-    %th Author
-    %th
-    %th
-    %th
+      .span4
+        %div
+          = album.title
+          = link_to album, class: "btn btn-small btn pull-right" do
+            %i.icon-eye-open
+        %div 
+          = link_to album.author.name, author_path(album.author)
+          = link_to edit_album_path(album), class: "btn btn-small btn pull-right" do
+            %i.icon-pencil
+        %div
+          = tags_links(album)
+          = link_to album, class: "btn btn-small btn pull-right", :confirm => 'Are you sure?', :method => :delete do
+            %i.icon-trash
 
-  - @albums.each do |album|
-    %tr
-      %td= album.title
-      %td= album.description
-      %td= tags_links(album)
-      %td= link_to album.author.name, author_path(album.author)
-      %td
-        = link_to album, class: "btn btn-small btn" do
-          %i.icon-eye-open
-          Show
-      %td
-        = link_to edit_album_path(album), class: "btn btn-small btn" do
-          %i.icon-pencil
-          Edit
-      %td
-        = link_to album, class: "btn btn-small btn", :confirm => 'Are you sure?', :method => :delete do
-          %i.icon-trash
-          Destroy
 %br
 
 = link_to new_album_path, class: "btn btn-small btn-success" do
